@@ -10,12 +10,12 @@ class Solution:
           ps.append(travel[i]+ps[i])
         for i in range(len(garbage)):
           for j in range(len(garbage[i])):
-            goc+=1
+            goc+=1   # count the total garbage
             if garbage[i][j]=='G':
-              g=i
+              g=i    #find the last position of glass garbage
             if garbage[i][j]=='P':
-              p=i
+              p=i    #find the last position of glass paper
             if garbage[i][j]=='M':
-              m=i
+              m=i    #find the last position of glass metal
         time=ps[m]+ps[g]+ps[p]+goc
         return time
