@@ -3,16 +3,19 @@ class Solution {
         //Arrays.sort(nums);
         //return nums[nums.length-k];
       
-    PriorityQueue<Integer> pq =new PriorityQueue<>(Collections.reverseOrder());
+      
+     //priorityQueue in java store the values in minheap by default
+    PriorityQueue<Integer> pq =new PriorityQueue<>();
       for(int i=0;i<nums.length;i++){
         pq.add(nums[i]);
         
-      }
+      } 
       
-      while(k>0){
-         k--;
-        if(k!=0)
-          pq.poll();
+      
+      while(k<pq.size()){
+         
+        pq.poll();
+        
        
       }
      return pq.peek(); 
