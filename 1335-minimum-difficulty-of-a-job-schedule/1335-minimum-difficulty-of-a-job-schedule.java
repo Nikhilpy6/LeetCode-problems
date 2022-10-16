@@ -13,7 +13,7 @@ class Solution {
      int res=Integer.MAX_VALUE;
      for(int i=idx;i<jobDifficulty.length-d+1;i++){
        mx=Math.max(mx,jobDifficulty[i]);
-       res=Math.min(res,mx+solution(jobDifficulty,i+1,d-1,dp));
+       res=Math.min(res,mx+solution(jobDifficulty,i+1,d-1,dp));//doing partitioning in d parts and sum the maximum values of all d parts should be minimum
      }
      return dp[d][idx]=res;
      
