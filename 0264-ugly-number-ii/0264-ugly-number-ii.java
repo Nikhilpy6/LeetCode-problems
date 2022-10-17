@@ -1,6 +1,10 @@
 class Solution {
     public int nthUglyNumber(int n) {
-        int dp[]=new int[n];
+      /*
+      //implementation using dynamic programmin
+      
+      
+      int dp[]=new int[n];
       dp[0]=1;
       int p1=0;  //pointers
       int p2=0;
@@ -22,5 +26,21 @@ class Solution {
         if(dp[i]==mul5)p3++;
       }
       return dp[n-1];
+      */
+      PriorityQueue<Long> pq= new PriorityQueue<>();
+      pq.add(1l);
+      int an=n-1;
+      while(an>0){
+        Long a=pq.poll();
+        if(!pq.contains(a*2))
+          pq.add(a*2);
+        if(!pq.contains(a*3))
+          pq.add(a*3);
+        if(!pq.contains(a*5))
+          pq.add(a*5);
+        an--;
+      }
+      long ans=pq.poll();
+      return (int)ans;
     }
 }
