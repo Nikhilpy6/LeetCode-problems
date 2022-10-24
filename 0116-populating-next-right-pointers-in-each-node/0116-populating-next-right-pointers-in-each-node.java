@@ -39,8 +39,8 @@ class Solution {
            
           if(size>1){
             temp=q.poll();
-            Node nextAd=q.peek();
-            temp.next=nextAd;
+            temp.next=q.peek();
+            //=nextAd;
           }
           else{
             temp=q.poll();
