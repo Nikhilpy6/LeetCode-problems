@@ -23,11 +23,12 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-      /*Queue<Node>q = new Queue<>();
+      
       if(root==null)
-        return root;
+          return root;
+      Queue<Node>q = new LinkedList<>();
       q.offer(root);
-      while(!q.isEmpty){
+      while(q.size()>0){
         int size=q.size();
         
         if(size==0)
@@ -54,10 +55,10 @@ class Solution {
           
           
       }
-      return root;*/
+      return root;
       
       
-      if(root==null)
+     /* if(root==null)
         return root;
       
       Node temp=root;
@@ -70,6 +71,6 @@ class Solution {
         }
         temp=cur.left;
       }
-      return root;
+      return root;*/
     }
 }
