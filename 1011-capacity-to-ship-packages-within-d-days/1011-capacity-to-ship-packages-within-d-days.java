@@ -1,42 +1,39 @@
 class Solution {
-    private boolean isPossible(int weights[],int days,int mid){
-      int daysCount=1;
-      int load=0;
+    private boolean isPossibleDistribution(int []weights,int mid,int days){
+      int currDays=1;
+      int packages=0;
       for(int i:weights){
-        if(load+i<=mid)
-          load+=i;
-        else{
-          daysCount++;
-          if(daysCount>days || i>mid)
-            return false;
-          load=i;
+        if(packages+i<=mid){
+          packages+=i;
         }
+        else{
+          currDays++;
+          if(currDays>days || i>mid)
+            return false;
+          packages=i;
+        }
+        
       }
       return true;
+      
     }
     public int shipWithinDays(int[] weights, int days) {
-        //similar to agressive cow where BINARY SEARCH used see how
-      int max=0,right=0,left=0;
-      int ans=-1;
-      for(int i:weights){
-        right+=i;
-        max=Math.max(max,i);
+        int en=0,s=0,ans=-1;
+      for(int weight:weights){
+        en+=weight;
+        s=Math.max(s,weight);
+        
       }
-      left=max;
-      //binary zsearch
-      //right=total sum
-      //left=max(arr)
-      while(left<=right){
-        int mid=left+(right-left)/2;
-        if(isPossible(weights,days,mid)){
+      while(s<=en){
+        int mid=en+(s-en)/2;
+        if(isPossibleDistribution(weights,mid,days)){
           ans=mid;
-          right=mid-1;
+          en=mid-1;
         }
         else{
-          left=mid+1;
+          s=mid+1;
         }
       }
       return ans;
-      
     }
 }
