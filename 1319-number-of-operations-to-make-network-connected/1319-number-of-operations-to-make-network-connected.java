@@ -1,13 +1,15 @@
 class Solution {
     
-    private int dfs(int i,List<List<Integer>>adjlis,boolean vis[]){
-      if(vis[i]==true)return 0;
+  // Intuition is clear that indicates if we count the components in graph and subtract with (one) which is connected
+  
+    private void dfs(int i,List<List<Integer>>adjlis,boolean vis[]){
+      if(vis[i]==true)return ;
         vis[i]=true;
       for(int ngh:adjlis.get(i)){
         dfs(ngh,adjlis,vis);
       }
       
-      return 1;
+      
     }
     public int makeConnected(int n, int[][] connections) {
       if(connections.length<n-1)return -1;
@@ -25,7 +27,10 @@ class Solution {
       }
       
       for(int no=0;no<n;no++){
-        sum+=dfs(no,adjlis,vis);
+        if(vis[no]==false){
+        dfs(no,adjlis,vis);
+          sum+=1;
+        }
       }
       return sum-1;
     }
