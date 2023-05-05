@@ -19,7 +19,7 @@ class Solution {
         
         if(c2=='a' || c2=='e' || c2=='i'|| c2=='o' || c2=='u')
           count++;
-        
+        if(count==k)return k; 
         max=Math.max(count,max);
       }
       return max;
