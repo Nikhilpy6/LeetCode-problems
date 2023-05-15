@@ -16,6 +16,7 @@ class Solution {
         ex[i]=false;
       }
      
+     
       
     }
     public int longestCycle(int[] edges) {
