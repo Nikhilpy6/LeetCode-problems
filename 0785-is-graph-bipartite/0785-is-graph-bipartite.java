@@ -1,0 +1,35 @@
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+          int[] color = new int[graph.length];
+
+        for(int i=0;i<graph.length;i++)
+        {
+            if(color[i]==0&&!dfs(graph,color,i,1))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean dfs(int[][] graph,int[] color,int node,int curColor)
+    {
+        if(color[node]!=0)
+        {
+            return color[node]==curColor;
+        }
+
+        color[node] = curColor;
+
+        for(int neigh:graph[node])
+        {
+            if(!dfs(graph,color,neigh,curColor==1?2:1))
+            {
+                return false;
+            }
+        }
+        return true;
+    
+    }
+}
