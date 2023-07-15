@@ -11,10 +11,23 @@ class Solution {
       int skip=solve(idx+1,events,k);  //skip
       
       int j=idx+1;
-      for(;j<n;j++){
-        if(events[j][0] > events[idx][1])
-          break;
-      }
+      int last=n;
+      // for(;j<n;j++){
+      //   if(events[j][0] > events[idx][1])
+      //     break;
+      // }
+      
+      //binary search
+        while(j<last){
+          int mid=(j+last)/2;
+          
+          if(events[mid][0]>events[idx][1]){
+            last=mid;
+          }
+          else
+            j=mid+1;
+          
+        }
       int take =  events[idx][2] + solve(j,events,k-1);
       
       return t[idx][k]=Math.max(skip,take);
