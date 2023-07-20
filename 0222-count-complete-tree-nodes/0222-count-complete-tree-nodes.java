@@ -14,17 +14,33 @@
  * }
  */
 class Solution {
-    public int solve(TreeNode root){
-      
+  
+    public int heightl(TreeNode root){
       if(root==null)return 0;
       
-      return 1+solve(root.left) + solve(root.right);
+      return 1+ heightl(root.left);
+      
+      
+    }
+  
+    public int heightr(TreeNode root){
+      if(root==null)return 0;
+      
+      return 1+ heightr(root.right);
+      
       
     }
   
   
     public int countNodes(TreeNode root) {
-      if(root==null)return 0;
-        return solve(root);
+        if(root==null)return 0;
+      
+      int hleft=heightl(root);
+        
+      int hright=heightr(root);
+      if(hleft==hright){
+        return (int)Math.pow(2,hleft)-1;
+      }
+      return 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
