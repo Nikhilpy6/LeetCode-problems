@@ -9,15 +9,17 @@ class Solution {
           j=mid;
       }
       return nums[i];
+      
+      
+// for max element in sorted array      
+    // while(i<j){
+    //     int mid = i +(j-i)/2;
+    //     if(nums[mid]>nums[j])
+    //       j=mid;
+    //     if(nums[mid]<nums[j])
+    //       i=mid+1;
+    //   }
+    //   return nums[j];
     }
 }
-/*
-int mid = start + (end -start) / 2;
-          if(nums[mid] > nums[end])
-          start = mid + 1 ;
-          
-          if(nums[mid] < nums[end])
-          end = mid ;
-        }
-        return nums[start];
-*/
+
