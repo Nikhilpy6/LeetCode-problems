@@ -30,7 +30,7 @@ class Solution {
     }
     public int diameterOfBinaryTree(TreeNode root) {
        
-       recu(root);
+      recu(root);
       return dis;
     }
 }
