@@ -3,10 +3,10 @@ class Solution:
         d={}
         for i in nums:
           if i%2==0:
-            if i not in d:
-              d[i]=1
-            else:
+            if i in d:
               d[i]+=1
+            else:
+              d[i]=1
         maxi=0
         ans=-1
         
