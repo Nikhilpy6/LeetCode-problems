@@ -1,0 +1,19 @@
+class Solution {
+    public List<String> buildArray(int[] target, int n) {
+        List<String> res =new ArrayList<>();
+        int stream=1;
+      int i=0;
+      while(i<target.length && stream<=n){
+        res.add("Push");
+        if(stream==target[i]){
+          i++;
+          stream++;
+        }
+        else{
+          res.add("Pop");
+          stream++;
+        }
+      }
+      return res;
+    }
+}
