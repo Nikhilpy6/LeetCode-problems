@@ -11,7 +11,7 @@ class Solution:
         for i in range(len(nums)):
           if i==0:
             l=0
-            r=(ps[-1]-ps[0])-(nums[i]*(n-i-1))
+            r=(ps[-1]-ps[i])-(nums[i]*(n-i-1))
             #ans.append(l-r)
             
           elif i==n-1:
