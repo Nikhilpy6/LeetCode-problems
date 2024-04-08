@@ -9,7 +9,7 @@ class Solution:
               students.append(students.pop(0))
             
           else:
-            return len(students)
+            break
         
     
-        return 0
+        return len(students)
