@@ -1,32 +1,59 @@
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
         
-      //Approach 1
+      //Approach 1(Using queue)
+      
+      
+//       int c=0;
+      
+//       Queue<Integer> qu = new LinkedList<>();
+       
+//       for(int i=0;i<tickets.length;i++){
+//         qu.add(i);
+//       }
+      
+//       while(!qu.isEmpty()){
+//         int front = qu.poll();
+//         c++;
+//         tickets[front]--;
+        
+//         if(front==k && tickets[front]==0){
+//           return c;
+//         }
+        
+//         if(tickets[front]!=0){
+          
+//           qu.add(front);
+          
+//         }
+        
+//       }
+//       return c;
+      
+      //Approach 2 without usng QUeue
       
       int c=0;
       
-      Queue<Integer> qu = new LinkedList<>();
-       
-      for(int i=0;i<tickets.length;i++){
-        qu.add(i);
+      if(tickets[k]==1){
+        return k+1;
       }
       
-      while(!qu.isEmpty()){
-        int front = qu.poll();
-        c++;
-        tickets[front]--;
+      while(tickets[k]>0){
         
-        if(front==k && tickets[front]==0){
-          return c;
-        }
-        
-        if(tickets[front]!=0){
+        for(int i=0;i<tickets.length;i++){
           
-          qu.add(front);
+          if(tickets[i]!=0){
+            tickets[i]--;
+            c++;
+          }
           
+          if(tickets[k]==0){
+            return c;
+          }
         }
         
       }
       return c;
+      
     }
 }
